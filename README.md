@@ -6,6 +6,7 @@
 1.settings.py
 	- import
 	- 新增app
+	- 設定ip ALLOWED_HOSTS = ['*']
 	- 可選擇使用預設 DB 或 MySql(需自行設定帳號密碼) 
 	- 設定templates / static 路徑
 	- 時區 / 語言更改
@@ -36,6 +37,6 @@
 ##執行程式 django_tk.py
 ```
 
-需 pip3 install tkinter
+使用 django_tk.py 需自行 install tkinter 套件
 
 ```
