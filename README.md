@@ -1,0 +1,1 @@
+# dajngo_auto_create
