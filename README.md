@@ -1,4 +1,4 @@
-# dajngo_auto_create
+# django_auto_create
 
 ##建立與修改的項目
 ```
