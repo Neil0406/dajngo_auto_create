@@ -1,5 +1,10 @@
 # django_auto_create
 
+##注意事項
+```
+建立 app 與 mysite 時可能因為某些單字而無法建立成功 例如 Mysite 輸入 test  
+
+```
 ##建立與修改的項目
 ```
 
