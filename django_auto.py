@@ -7,12 +7,12 @@ def info(project_name, mysite_name, app_name, db):
     # mysite_name = str(input('請輸入Mysite名稱：'))
     # app_name = str(input('請輸入App名稱：'))
     # db = str(input('資料庫 / 預設：1 Mysql:2 :'))
-    project_path = '/Users/../Desktop'                         #修改路徑到你要的位置
+    project_path = '/Users/weichenho/Desktop'                         #修改路徑到你要的位置
     project_file = project_path + '/' + project_name
 
     os.mkdir(project_file)     #建立專案資料夾
 
-    os.system(f'cd {project_file} && django-admin.py startproject {mysite_name}')   #建立mysite資料夾
+    os.system(f'cd {project_file} && django-admin startproject {mysite_name}')   #建立mysite資料夾
     os.system(f'cd {project_file}/{mysite_name} && python manage.py startapp {app_name}') #建立app資料夾
     os.mkdir(f'{project_file}/{mysite_name}/templates')                                   #建立templates資料夾
     os.mkdir(f'{project_file}/{mysite_name}/static')                                      #建立static資料夾
@@ -38,7 +38,8 @@ def settings(project_file, mysite_name, app_name, db):
 
     new_l = []
     for i in l:
-        if i == 'import os\n':
+        if i == 'from pathlib import Path\n':
+            new_l.append('from pathlib import Path\n')
             new_l.append('import os\n')
             new_l.append('import pymysql\n')
             new_l.append('pymysql.version_info = (1, 4, 13, "final", 0)      ##需自行新增\n')
@@ -52,7 +53,7 @@ def settings(project_file, mysite_name, app_name, db):
             new_l.append("        'DIRS': [os.path.join(BASE_DIR, 'templates').replace('\\\\', '/')],\n")   
         elif i == "        'ENGINE': 'django.db.backends.sqlite3',\n" and db == '2':                      #Mysql設定區
             new_l.append("        'ENGINE': 'django.db.backends.mysql',\n")
-        elif i == "        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),\n" and db == '2':
+        elif i == "        'NAME': BASE_DIR / 'db.sqlite3',\n" and db == '2':
             new_l.append("        'NAME': '',\n")
             new_l.append("        'USER': 'root',\n") 
             new_l.append("        'PASSWORD': 'root',\n")                       
